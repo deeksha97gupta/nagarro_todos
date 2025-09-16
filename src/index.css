@@ -1,13 +1,107 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --bg: #f7f9fc;
+  --card: #fff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #2563eb;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* { box-sizing: border-box; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 24px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app { 
+  max-width: 800px;
+  margin: 0 auto;
+}
+h1 { 
+  margin: 0 0 8px; 
+}
+.lead { 
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+
+.add-form { 
+  display:flex;
+  gap:8px;
+  align-items:center;
+  margin-bottom:12px;
+  flex-wrap:wrap;
+}
+
+.add-form input[type="text"], .add-form input[type="search"] {
+  padding:8px 10px;
+  border:1px solid #e5e7eb;
+  border-radius:6px;
+  min-width:220px;
+}
+
+button {
+  background: var(--accent);
+  color:#fff;
+  border:none;
+  padding:8px 12px;
+  margin: 2px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+button[aria-label*="Delete"] { 
+  background: #ef4444;
+}
+
+button:hover {
+  background: #9dd0ff;
+  color: black;
+}
+
+.todo-list {
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.todo-item {
+  background: var(--card);
+  padding:10px;
+  border-radius:8px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 1px 0 rgba(0,0,0,0.05);
+}
+
+.todo-item label {
+  display:flex;
+  gap:12px;
+  align-items:center;
+  cursor:pointer;
+}
+
+.item-actions {
+  display: flex;
+}
+
+.todo-item .completed {
+  text-decoration:line-through;
+  color:var(--muted);
+}
+
+.empty { 
+  color:var(--muted);
+}
+
+.status { 
+  margin-bottom:8px;
+  color:var(--muted);
 }
