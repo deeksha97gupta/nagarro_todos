@@ -13,7 +13,7 @@ const Pending = (): JSX.Element => {
              <ul className="todo-list" aria-live="polite">
                 {filtered.map(todo => {
                    return (
-                    <li className="todo-item">
+                    <li key={todo.id} className="todo-item">
                       {todo.text}
                     </li>
                    )
