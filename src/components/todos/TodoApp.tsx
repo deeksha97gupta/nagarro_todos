@@ -10,7 +10,7 @@ export default function TodoApp() : JSX.Element {
 //   const [filteredTodo, setfilteredTodo] = useState<Todo[]>([])
 
 
-// Can also use useEffect AND setTimeout for debaouncing (But that is good for large list or some Api call)
+// Can also use useEffect AND setTimeout for debaouncing (But that is good for large list or Api calls)
 
 /*useEffect(() => {
     let timer = setTimeout(() => {

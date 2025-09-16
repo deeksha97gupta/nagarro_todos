@@ -14,9 +14,7 @@ const TodoItem = React.memo(
         const [isEdit, setIsEdit] = useState<boolean>(false);
         const [skipToggle, setSkipToggle] = useState<boolean>(false);
         const [inputValue, setInputValue] = useState<string>("")
-        const handleToggle = useCallback(() => 
-            !skipToggle && onToggle(todo.id)
-        , [onToggle, todo.id, skipToggle]);
+        const handleToggle = useCallback(() => !skipToggle && onToggle(todo.id), [onToggle, todo.id, skipToggle]);
         const handleRemove = useCallback(() => onRemove(todo.id), [onRemove, todo.id]);
         const handleEdit = useCallback(() => {
             onEdit(todo.id, inputValue);

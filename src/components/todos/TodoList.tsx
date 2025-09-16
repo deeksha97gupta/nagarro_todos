@@ -16,8 +16,8 @@ export default function TodoList({ todos, onToggle, onRemove, onEdit }: Props) {
 
   return (
     <ul className="todo-list" aria-live="polite">
-      {todos.map(t => (
-        <TodoItem key={t.id} todo={t} onToggle={onToggle} onRemove={onRemove} onEdit={onEdit}/>
+      {todos.map(todo => (
+        <TodoItem key={todo.id} todo={todo} onToggle={onToggle} onRemove={onRemove} onEdit={onEdit}/>
       ))}
     </ul>
   );

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {JSX} from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Tab = () => {
+const Tab = (): JSX.Element => {
   return (
     <nav className="navbar">
         <NavLink to="/"><button>All Todo</button></NavLink>

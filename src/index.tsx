@@ -7,13 +7,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Tab from './components/todos/Tab';
 import Completed from './components/todos/Completed';
 import Pending from './components/todos/Pending';
+import ErrorBoundary from './ErrorBoundry';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Router>
+    <ErrorBoundary fallback={<h2>⚠️ Something went wrong. Please try again later.</h2>}>
+      <Router>
        <Tab />
        <Routes>
           <Route path="/" element={<App />} />
@@ -21,6 +23,7 @@ root.render(
           <Route path="/pending" element={<Pending />} />
         </Routes>
     </Router>
+    </ErrorBoundary>
   </React.StrictMode>
 );
 
