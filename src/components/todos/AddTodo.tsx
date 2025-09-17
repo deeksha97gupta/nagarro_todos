@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import { useTheme } from '../../utils/useTheme';
 
 interface Props {
   onAdd: (text: string) => void;
@@ -6,6 +7,7 @@ interface Props {
 }
 
 export default function AddTodo({ onAdd, onSearch }: Props) {
+   const { theme } = useTheme()
   const [inputValue, setInputValue] = useState("");
 
   const submit = useCallback((e: React.FormEvent) => {
@@ -27,7 +29,13 @@ export default function AddTodo({ onAdd, onSearch }: Props) {
         placeholder="Add a todo"
         aria-label="Todo text"
       />
-      <button type="submit" aria-label="Add todo">Add</button>
+      <button 
+        type="submit"
+        aria-label="Add todo"
+        className={theme === "light" ? "light-button" : "dark-button"}
+      >
+        Add
+      </button>
 
       <label htmlFor="todo-search" className="label-text">Search Todos</label>
       <input

@@ -53,6 +53,16 @@ button {
   cursor:pointer;
 }
 
+.light-button {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.dark-button {
+  background-color: var(--text);
+  color: #fff;
+}
+
 button[aria-label*="Delete"] { 
   background: #ef4444;
 }

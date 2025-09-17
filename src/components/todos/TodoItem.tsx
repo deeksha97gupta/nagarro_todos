@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { Todo } from "./types";
+import { useTheme } from '../../utils/useTheme';
 
 interface Props {
   todo: Todo;
@@ -11,6 +12,7 @@ interface Props {
 // memo to avoid re-render unless props change
 const TodoItem = React.memo(
     function TodoItem({ todo, onToggle, onRemove, onEdit }:Props) {
+        const { theme } = useTheme();
         const [isEdit, setIsEdit] = useState<boolean>(false);
         const [skipToggle, setSkipToggle] = useState<boolean>(false);
         const [inputValue, setInputValue] = useState<string>("")
@@ -36,6 +38,7 @@ const TodoItem = React.memo(
                         <button
                           onClick={handleEdit}
                           aria-label={`Edit Done ${todo.text}`}
+                          className={theme === "light" ? "light-button" : "dark-button"}
                         > 
                             Done 
                         </button>
@@ -58,10 +61,17 @@ const TodoItem = React.memo(
                             setIsEdit(true);
                         }}
                         aria-label={`Edit ${todo.text}`}
+                        className={theme === "light" ? "light-button" : "dark-button"}
                     >
                         Edit
                     </button>
-                    <button onClick={handleRemove} aria-label={`Remove ${todo.text}`}>Delete</button>
+                    <button 
+                        onClick={handleRemove}
+                        aria-label={`Remove ${todo.text}`}
+                        className={theme === "light" ? "light-button" : "dark-button"}
+                    >
+                        Delete
+                    </button>
                 </div>
             </li>
         );

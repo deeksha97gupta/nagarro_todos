@@ -6,10 +6,37 @@ const Tab = (): JSX.Element => {
   const { theme, toggleTheme } = useTheme()
   return (
     <nav className="navbar">
-        <NavLink to="/"><button>All Todo</button></NavLink>
-        <NavLink to="/completed"><button>Completed</button></NavLink>
-        <NavLink to="/pending"><button>Pending</button></NavLink>
-        <button onClick={toggleTheme}>Toggle Theme {theme}</button>
+        <NavLink to="/">
+          <button 
+            aria-label="All Todos"
+            className={theme === "light" ? "light-button" : "dark-button"}
+          > 
+            All Todo
+          </button>
+        </NavLink>
+        <NavLink to="/completed">
+          <button 
+            aria-label="Completed Todos"
+            className={theme === "light" ? "light-button" : "dark-button"}
+          >
+            Completed
+          </button>
+        </NavLink>
+        <NavLink to="/pending">
+          <button 
+            aria-label="Pending Todos"
+            className={theme === "light" ? "light-button" : "dark-button"}
+          >
+            Pending
+          </button>
+        </NavLink>
+        <button 
+          onClick={toggleTheme}
+          aria-label={`Theme ${theme}`}
+          className={theme === "light" ? "light-button" : "dark-button"}
+        >
+          Toggle Theme ({theme})
+        </button>
     </nav>
   );
 };
