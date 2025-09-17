@@ -1,46 +1,58 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## To Start the project - `npm start`
+Open [http://localhost:3000]
 
-## Available Scripts
+## To run test cases `npm test`
 
-In the project directory, you can run:
+## Functionalities and Architecture decisions
+  - Add, Edit, Delete and Complets a Todo using 'typescript'
+        - Used `useMemo` to memorize any update in the `todo list`
+        - Used `useCallback` to memorize `function calls`
+        - Used `React.memo` to memorize `'TodoItem' component` so it will not re-render unnessesary
+        - Also Can use `Debounce` to search todo
+        - Used `(aria-*) attributes` for screen readers
+        - Used `semantic HTML` elements
 
-### `npm start`
+  - Used `LocalStorage` to persist tasks between page reloads
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  - Used `react-router-dom` to implement `Router` for All, completed and Pending todos
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  - Used `Lazy-loading` for efficient `code-splitting` and `reduced bundle size`
 
-### `npm test`
+  - Used `contest API` to implement `Theme(Dark/light)`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  - Used `Jest` and `react-testing` library to implement unit test cases
 
-### `npm run build`
+  - Implement `ErrorBoundary` to catch errors and show `fallback UI`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  - Added `index.css` file for all styling in app
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  ## Web Vitals Monitoring
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  - Added `Web Vitals Monitoring` console.log for CLS, FID, LCP
+        - Web Vitals are a set of metrics (like LCP, FID, CLS) that measure real-world user experience (loading,           interactivity, visual stability).
+        - `LCP` (Largest Contentful Paint) → `Loading performance` (Good: ≤ 2.5s)
+        - `FID` (First Input Delay) → `Interactivity` (Good: ≤ 100ms)
+        - `CLS` (Cumulative Layout Shift) → `Visual stability`
 
-### `npm run eject`
+        examples (console.log value)
+           {
+                "name": "LCP",
+                "value": 104,
+                "delta": 104,
+                "entries": [
+                    {
+                        "name": "",
+                        "entryType": "largest-contentful-paint",
+                        "startTime": 104,
+                        "duration": 0,
+                        "size": 3420,
+                        "renderTime": 104,
+                        "loadTime": 0,
+                        "id": "",
+                        "url": ""
+                    }
+                ],
+                "id": "v2-1758105544883-3605860271399"
+            }
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
