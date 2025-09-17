@@ -8,22 +8,25 @@ import Tab from './components/todos/Tab';
 // import Completed from './components/todos/Completed';
 // import Pending from './components/todos/Pending';
 import ErrorBoundary from './ErrorBoundary';
+import { ThemeProvider } from './utils/ThemeContext';
 
 const AppIndex = (): JSX.Element => {
   const Completed = lazy(() => import('./components/todos/Completed'));
   const Pending = lazy(() => import('./components/todos/Pending'))
   return (
     <React.StrictMode>
-      <ErrorBoundary fallback={<h2>⚠️ Something went wrong. Please try again later.</h2>}>
-        <Router>
-        <Tab />
-        <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="/completed" element={<Completed />} />
-            <Route path="/pending" element={<Pending />} />
-          </Routes>
-      </Router>
-      </ErrorBoundary>
+      <ThemeProvider>
+        <ErrorBoundary fallback={<h2>⚠️ Something went wrong. Please try again later.</h2>}>
+          <Router>
+            <Tab />
+            <Routes>
+              <Route path="/" element={<App />} />
+              <Route path="/completed" element={<Completed />} />
+              <Route path="/pending" element={<Pending />} />
+            </Routes>
+          </Router>
+        </ErrorBoundary>
+      </ThemeProvider>
     </React.StrictMode>
   )
 }
